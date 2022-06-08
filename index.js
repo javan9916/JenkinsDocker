@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 })
 
 app.listen(8081, function() {
-    console.log('Hello from Docker, this was automated by Jenkins!\napp listening on port 8081!')
+    console.log('Hello from Docker, this was automated by Jenkins!\nThe app listening on port 8081!')
 })
 
 
