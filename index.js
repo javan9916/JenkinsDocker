@@ -41,7 +41,7 @@ function postTweet(data) {
 
     let msg = `The weather status is: ${weather} (${description}) in ${location}\n`+
     `The temperature is ${temp}°C but feels like ${feels}°C and humidity is ${humidity}%\n`+
-    `Timestamp: ${Date.now()}\n#salvandoRedes2022IC`;
+    `Timestamp: ${Date.now()}\nHello from Docker!\n#salvandoRedes2022IC`;
 
     client.post('statuses/update', { status: msg }).then(result => {
         console.log('You successfully tweeted this : "' + result.text + '"');
