@@ -1,22 +1,20 @@
-#!/usr/bin/env groovy
-
 node {
-    def app 
+    def app
     stage('clone repository') {
-        checkout scm  
+      checkout scm  
     }
     stage('Build docker Image'){
-        app = docker.build("javan9916/twitterdemo")
+        app = docker.build("javan9916/nodejsdemo")
     }
     stage('Test Image'){
         app.inside {
-            sh 'echo "TEST PASSED"'
-      }  
+            sh 'echo "TEST PASSED"' 
+        }  
     }
     stage('Push Image'){
-       docker.withRegistry('https://registry.hub.docker.com', 'git') {            
-            app.push("${env.BUILD_NUMBER}")            
-            pp.push("latest")   
-        }   
-    }   
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {            
+        app.push("${env.BUILD_NUMBER}")            
+        app.push("latest")   
+        }
+    }
 }

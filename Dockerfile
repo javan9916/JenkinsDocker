@@ -1,8 +1,8 @@
-FROM node:7
+FROM node
 RUN mkdir -p /app
 WORKDIR /app
 COPY package.json /app
 RUN npm install
 COPY . /app
-EXPOSE 4200
-CMD ["npm", "run", "start"]
+CMD node index.js
+EXPOSE 8081
