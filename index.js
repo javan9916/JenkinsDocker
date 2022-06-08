@@ -29,6 +29,22 @@ function callWeatherAPI() {
     setTimeout(callWeatherAPI, 600000)
 }
 
+// Gets a Weather Report from the API and calls function to post a tweet
+function getWeatherReport() {
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`)
+    .then(response => response.data)
+    .then(data => {
+        if (data.cod === 200) {
+            postTweet(data);
+        } else {
+            console.log(`There was some error requesting the data (${data.cod})`);
+        }
+    })
+    .catch(err => {
+        console.log(err)
+    });
+}
+
 // Posts a Tweet with all the Weather data
 function postTweet(data) {
     let weather = data.weather[0].main;
@@ -44,22 +60,6 @@ function postTweet(data) {
     `Timestamp: ${Date.now()}\n#salvandoRedes2022IC`;
 
     client.post('statuses/update', { status: msg }).then(result => {
-        console.log('You successfully tweeted this : "' + result.text + '"');
+        console.log('You successfully posted a tweet, go and check it out!');
     }).catch(console.error);
-}
-
-// Gets a Weather Report from the API and calls function to post a tweet
-function getWeatherReport() {
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`)
-    .then(response => response.data)
-    .then(data => {
-        if (data.cod === 200) {
-            postTweet(data);
-        } else {
-            console.log(`There was some error requesting the data (${data.cod})`);
-        }
-    })
-    .catch(err => {
-        console.log(err)
-    });
 }
