@@ -26,7 +26,7 @@ function callWeatherAPI() {
     getWeatherReport();
 
     // Call Weather API every 10 minutes
-    setTimeout(callWeatherAPI, 60000)
+    setTimeout(callWeatherAPI, 600000)
 }
 
 // Posts a Tweet with all the Weather data
