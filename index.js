@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 })
 
 app.listen(8081, function() {
-    console.log('app listening on port 8081!')
+    console.log('Hello from Docker!\napp listening on port 8081!')
 })
 
 
@@ -41,7 +41,7 @@ function postTweet(data) {
 
     let msg = `The weather status is: ${weather} (${description}) in ${location}\n`+
     `The temperature is ${temp}°C but feels like ${feels}°C and humidity is ${humidity}%\n`+
-    `Timestamp: ${Date.now()}\nHello from Jenkins!\n#salvandoRedes2022IC`;
+    `Timestamp: ${Date.now()}\n#salvandoRedes2022IC`;
 
     client.post('statuses/update', { status: msg }).then(result => {
         console.log('You successfully tweeted this : "' + result.text + '"');
