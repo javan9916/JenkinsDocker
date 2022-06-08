@@ -1,8 +1,7 @@
-FROM node:latest
-RUN mkdir -p /app
-WORKDIR /app
-COPY package.json /app
+FROM node
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
-COPY . /app
+COPY . .
 EXPOSE 8081
 CMD ["npm", "start"]
