@@ -17,8 +17,8 @@ app.get('/', function(req, res) {
 })
 
 app.listen(8081, function() {
-    console.log('Hello from Docker, this was automated by Jenkins!\nThe app listening on port 8081!'+
-                ' To access it go to: http://localhost:3000 or to http://localhost:<SELECTED_PORT>')
+    console.log('Hello from Docker, this was automated by Jenkins!\nListening on port 8081!'+
+                ' To access it go to: http://localhost:3000 or to localhost with the selected port\n');
 })
 
 
