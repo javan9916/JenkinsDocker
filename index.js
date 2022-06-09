@@ -13,11 +13,12 @@ const lng = '-84.213760';
 
 app.get('/', function(req, res) {
     callWeatherAPI();
-    res.send("Script executed successfully! \n Check <a href='https://twitter.com/Kodaktree'>@Kodaktree</a> on Twitter...");
+    res.send("Script executed successfully! \n Check <a target='_blank' href='https://twitter.com/Kodaktree'>@Kodaktree</a> on Twitter...");
 })
 
 app.listen(8081, function() {
-    console.log('Hello from Docker, this was automated by Jenkins!\nThe app listening on port 8081! To access it go to: http://localhost:3000')
+    console.log('Hello from Docker, this was automated by Jenkins!\nThe app listening on port 8081!'+
+                ' To access it go to: http://localhost:3000 or to http://localhost:<SELECTED_PORT>')
 })
 
 
